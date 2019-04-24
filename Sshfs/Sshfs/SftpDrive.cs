@@ -213,17 +213,21 @@ namespace Sshfs
             {
                 try
                 {
-                    if (_threadCancel.IsCancellationRequested)
-                    {
-                        Debug.WriteLine("Reconnect thread:Cancel");
-                        break;
-                    }
+                    //TODO 重新连接设置
+                    //if (_threadCancel.IsCancellationRequested)
+                    //{
+                    //    Debug.WriteLine("Reconnect thread:Cancel");
+
+                    //    break;
+                    //}
                     this.Mount();
                 }
-                catch 
-                {}
+                catch(Exception e)
+                {
+                    LogHelper.WriteError("Reconnect Error", e);
+                }
                 if (this.Status != DriveStatus.Mounted){
-                    Thread.Sleep(1000);
+                    Thread.Sleep(TimeSpan.FromSeconds(30));
                 }
             }
         }
@@ -288,7 +292,8 @@ namespace Sshfs
         public void Mount()
         {
             Debug.WriteLine("Mount");
-           
+            LogHelper.WriteInfo("Mount");
+
 
             if (Directory.GetLogicalDrives().Any(drive=>drive[0]==Letter))
             {

@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{FF4FC8BB-91A3-45FF-8449-650647610394}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sshfs</RootNamespace>
     <AssemblyName>WinSshFS</AssemblyName>
@@ -108,6 +108,9 @@
       <HintPath>..\packages\DokanNet.1.1.0\lib\net46\DokanNet.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -131,6 +134,7 @@
     </Compile>
     <Compile Include="DriveStatus.cs" />
     <Compile Include="ContextMenuStripThemedRenderer.cs" />
+    <Compile Include="Log4Helper.cs" />
     <Compile Include="SftpContextStream.cs" />
     <Compile Include="FiSSHGlobal.cs" />
     <Compile Include="GuiBackend\FolderModel.cs" />

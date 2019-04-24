@@ -524,6 +524,7 @@ namespace Sshfs
                                           }
                                           catch (Exception e)
                                           {
+                                              LogHelper.WriteError("Mount Error", e);
                                               BeginInvoke(new MethodInvoker(() =>
                                                                                 {
                                                                                     if (
@@ -564,6 +565,7 @@ namespace Sshfs
             }
             else
             {
+                LogHelper.WriteInfo("Unmout By Click");
                 drive.Unmount();
                 muButton.Enabled = false;
             }
